@@ -47,4 +47,4 @@ warnings.filterwarnings("ignore", category=MatplotlibDeprecationWarning)
 profile = ProfileReport(spark_df, config=cfg)
 
 # Genera e salva il report di profilazione
-profile.to_file("song_lyrics_report.html")
+profile.to_file("/Users/elisacatena/Desktop/song_lyrics_report.html")

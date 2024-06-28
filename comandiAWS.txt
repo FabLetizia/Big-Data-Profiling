@@ -1,22 +1,23 @@
-METTERE FILE:
+METTERE FILE SUL NODO:
 
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/Airline.csv ec2-18-204-10-39.compute-1.amazonaws.com:~
+scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/Airline.csv.zip hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
 
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/song_lyrics.csv.zip ec2-18-204-10-39.compute-1.amazonaws.com:~
+scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/song_lyrics.csv.zip hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
 
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/YdataZIP.py ec2-18-204-10-39.compute-1.amazonaws.com:~
+scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/Ydata.py hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
 
 
 ACCEDERE AL MASTER NODE:
 
-ssh -i ~/.ssh/pem/elisa_catena_big_data_2024.pem ec2-18-204-10-39.compute-1.amazonaws.com
+ssh -i ~/.ssh/pem/elisa_catena_big_data_2024.pem hadoop@ec2-52-91-127-17.compute-1.amazonaws.com
 
 hdfs dfs -mkdir /input
 
 
 SPOSTARE I FILE NEL MASTER NODE:
 
-hdfs dfs -put song_lyrics.csv.zip /input/song_lyrics.csv.zip 
+hdfs dfs -put song_lyrics.csv.zip /input
+hdfs dfs -put Airline.csv.zip /input
 
 
 LIBRERIE:
@@ -29,11 +30,14 @@ pip install urllib3==1.26.14
 
 LANCIARE IL JOB:
 
-$SPARK_HOME/bin/spark-submit --master yarn YdataZIP.py --input_path hdfs:///input/song_lyrics.csv.zip
+$SPARK_HOME/bin/spark-submit --master yarn Ydata.py --input_path hdfs:///input/Airline.csv.gz
 
 
 SPOSTARE L'OUTPUT SUL DESKTOP:
-scp -i /Users/elisacatena/.ssh/pem/elisa_catena_big_data_2024.pem ec2-18-204-10-39.compute-1.amazonaws.com:airline_report.html ~/Desktop/
+scp -i /Users/elisacatena/.ssh/pem/elisa_catena_big_data_2024.pem hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:song_lyrics_report.html ~/Desktop/
+
+
+
 
 
 VEDERE IL RISULTATO:
@@ -48,6 +52,4 @@ hdfs dfs -rm -r /input
 
 rm airline_report.html
 rm song_lyrics_report.html
-rm YdataGZ.py 
-
-
+rm YdataZIP.py 

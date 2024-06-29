@@ -24,7 +24,7 @@ SparkSession.builder.appName("SparkProfiling").master("local[*]").config("spark.
 )
 
 # Carica il dataset in un DataFrame Spark
-spark_df = spark_session.read.csv(dataset_filepath, header=True, sep='\t', inferSchema=True)
+spark_df = spark_session.read.csv(dataset_filepath, header=True, inferSchema=True)
 
 cfg = Settings()
 cfg.infer_dtypes = False

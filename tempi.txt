@@ -1,8 +1,3 @@
-books_rating senza alcune cose:
-inizio: 9:41:46
-fine: 9:51:05
-
-
-books_rating completo:
-inizio: 10:00:31
-fine: 
+books_rating:
+inizio: 10:13:37
+fine: 10:21:27

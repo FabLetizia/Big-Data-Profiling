@@ -1,3 +1,0 @@
-books_rating:
-inizio: 9:41:46
-fine: 

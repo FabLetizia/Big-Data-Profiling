@@ -1,0 +1,11 @@
+Airport (12.64 MB)
+https://www.kaggle.com/datasets/iamsouravbanerjee/airline-dataset?select=Airline+Dataset+Updated.csv
+
+Books rating (2.86 GB)
+https://www.kaggle.com/datasets/mohamedbakhet/amazon-books-reviews?select=Books_rating.csv
+
+Final anime dataset (4.55 GB)
+https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?select=final_animedataset.csv
+
+2019 Nov (9.01 GB)
+https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store?select=2019-Nov.csv

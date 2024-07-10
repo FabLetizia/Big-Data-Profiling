@@ -11,6 +11,10 @@ CREATE THE INPUT FOLDER ON HDFS:
 hdfs dfs -mkdir /input
 
 
+CREATE THE OUTPUT FOLDER ON HDFS:
+hdfs dfs -mkdir /output
+
+
 MOVE FILES IN THE INPUT FOLDER:
 hdfs dfs -put path/to/local/file.csv /input
 

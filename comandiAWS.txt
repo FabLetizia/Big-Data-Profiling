@@ -1,26 +1,21 @@
 METTERE FILE SUL NODO:
-
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/Airline.csv.zip hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
-
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/song_lyrics.csv.zip hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
-
-scp -i ~/.ssh/pem/elisa_catena_big_data_2024.pem -r ~/git/Big-Data-Profiling/Ydata.py hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:~
+scp -i path/to/your_key.pem -r path/to/local/file.csv hadoop@your-master-node.amazonaws.com:~
+scp -i path/to/your_key.pem -r path/to/your_script.py hadoop@your-master-node.amazonaws.com:~
 
 
 ACCEDERE AL MASTER NODE:
+ssh -i path/to/your_key.pem hadoop@your-master-node.amazonaws.com
 
-ssh -i ~/.ssh/pem/elisa_catena_big_data_2024.pem hadoop@ec2-52-91-127-17.compute-1.amazonaws.com
 
+CREARE LA CARTELLA DI INPUT SU HDFS:
 hdfs dfs -mkdir /input
 
 
-SPOSTARE I FILE NEL MASTER NODE:
-
-hdfs dfs -put song_lyrics.csv.zip /input
-hdfs dfs -put Airline.csv.zip /input
+SPOSTARE I FILE NELLA CARTELLA INPUT:
+hdfs dfs -put path/to/local/file.csv /input
 
 
-LIBRERIE:
+LIBRERIE DA INSTALLARE SU HDFS:
 pip install matplotlib
 pip install pyspark
 pip install ydata_profiling
@@ -29,27 +24,8 @@ pip install urllib3==1.26.14
 
 
 LANCIARE IL JOB:
-
-$SPARK_HOME/bin/spark-submit --master yarn Ydata.py --input_path hdfs:///input/Airline.csv.gz
-
-
-SPOSTARE L'OUTPUT SUL DESKTOP:
-scp -i /Users/elisacatena/.ssh/pem/elisa_catena_big_data_2024.pem hadoop@ec2-52-91-127-17.compute-1.amazonaws.com:song_lyrics_report.html ~/Desktop/
+$SPARK_HOME/bin/spark-submit --master yarn path/to/your_script.py --input_path hdfs:///input/file.csv
 
 
-
-
-
-VEDERE IL RISULTATO:
-
-hdfs dfs -ls /input
-hdfs dfs -ls /output
-
-
-ELIMINARE FILE O CARTELLE:
-hdfs dfs -rm -r /output
-hdfs dfs -rm -r /input
-
-rm airline_report.html
-rm song_lyrics_report.html
-rm YdataZIP.py 
+SCARICARE L'OUTPUT IN LOCALE:
+scp -i path/to/your_key.pem hadoop@your-master-node.amazonaws.com:output.html path/to/destination/

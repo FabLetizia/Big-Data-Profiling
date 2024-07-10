@@ -3,7 +3,6 @@ import warnings
 from matplotlib import MatplotlibDeprecationWarning
 from pyspark.sql import SparkSession
 from ydata_profiling import ProfileReport
-from ydata_profiling.config import Settings
 import argparse
 
 logging.basicConfig(level=logging.INFO)
@@ -24,23 +23,10 @@ SparkSession.builder.appName("SparkProfiling").master("local[*]").config("spark.
 
 spark_df = spark_session.read.csv(dataset_filepath, header=True, inferSchema=True)
 
-# DA LEVARE
-cfg = Settings()
-cfg.infer_dtypes = False
-cfg.correlations["auto"].calculate = False
-cfg.correlations["pearson"].calculate = False
-cfg.correlations["spearman"].calculate = False
-cfg.interactions.continuous = False
-cfg.missing_diagrams["bar"] = False
-cfg.missing_diagrams["heatmap"] = False
-cfg.missing_diagrams["matrix"] = False
-cfg.samples.tail = 0
-cfg.samples.random = 0
-
 # Create and start the monitoring process
 warnings.filterwarnings("ignore", category=MatplotlibDeprecationWarning)
 
 # ydata_profiling tool
-profile = ProfileReport(spark_df, config=cfg)
+profile = ProfileReport(spark_df)
 
 profile.to_file("report.html")

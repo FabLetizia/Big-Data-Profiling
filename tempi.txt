@@ -1,13 +1,20 @@
-books_rating:
-inizio: 10:13:37
-fine: 10:21:27
+(AWS)
+
+airline dataset:
+data profiling execution time: 22 sec
 
 
-nov_2019:
-inizio: 9:41:09
-fine: 10:00:39
- 
+titles dataset:
+data profiling execution time: 3 min 13 sec
 
-london:
-inizio: 10:26:08
-fine: 10:38:41
+
+books_rating dataset:
+data profiling execution time: 5 min 10 sec
+
+
+london dataset:
+data profiling execution time: 6 min 53 sec
+
+
+nov_2019 dataset:
+data profiling execution time: 9 min 45 sec

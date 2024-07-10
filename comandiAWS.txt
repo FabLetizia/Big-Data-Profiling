@@ -1,21 +1,21 @@
-METTERE FILE SUL NODO:
+PUT FILES ON THE NODE:
 scp -i path/to/your_key.pem -r path/to/local/file.csv hadoop@your-master-node.amazonaws.com:~
 scp -i path/to/your_key.pem -r path/to/your_script.py hadoop@your-master-node.amazonaws.com:~
 
 
-ACCEDERE AL MASTER NODE:
+ACCESS THE MASTER NODE:
 ssh -i path/to/your_key.pem hadoop@your-master-node.amazonaws.com
 
 
-CREARE LA CARTELLA DI INPUT SU HDFS:
+CREATE THE INPUT FOLDER ON HDFS:
 hdfs dfs -mkdir /input
 
 
-SPOSTARE I FILE NELLA CARTELLA INPUT:
+MOVE FILES IN THE INPUT FOLDER:
 hdfs dfs -put path/to/local/file.csv /input
 
 
-LIBRERIE DA INSTALLARE SU HDFS:
+INSTALL LIBRARIES ON HDFS:
 pip install matplotlib
 pip install pyspark
 pip install ydata_profiling
@@ -23,9 +23,9 @@ pip uninstall urllib3
 pip install urllib3==1.26.14
 
 
-LANCIARE IL JOB:
+RUN THE JOB:
 $SPARK_HOME/bin/spark-submit --master yarn path/to/your_script.py --input_path hdfs:///input/file.csv
 
 
-SCARICARE L'OUTPUT IN LOCALE:
+DOWNLOAD THE OUTPUT FILE IN LOCAL PATH:
 scp -i path/to/your_key.pem hadoop@your-master-node.amazonaws.com:output.html path/to/destination/

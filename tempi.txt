@@ -4,23 +4,27 @@ ALL TIMES REFER TO THE EXECUTION ON AWS
 |           Initial Datasets           |
 +--------------------------------------+
 
+
 Dataset           | Execution Time
 ------------------|----------------
-airline           | 
-titles            | 
-books_rating      | 
-london            | 
-nov_2019          | 
+airline           | 12.94 sec
+titles            | 3 min 28.42 sec
+books_rating      | 5 min 44.94 sec
+london            | 6 min 57.23 sec
+nov_2019          | 9 min 14.35 sec
+
+
 
 
 +--------------------------------------+
 |           Cleaned Datasets           |
 +--------------------------------------+
 
+
 Dataset           | Execution Time
 ------------------|----------------
-airline           | 
-titles            | 
-books_rating      | 
-london            | 
-nov_2019          | 
+airline           | 12.94 sec
+titles            | 2 min 7.06 sec
+books_rating      | 4 min 37.12 sec
+london            | 6 min 28.59 sec
+nov_2019          | 7 min 19.88 sec

@@ -1,0 +1,21 @@
+# ALL TIMES REFER TO THE EXECUTION ON AWS
+
+********** INITIAL DATASETS **********
+
+## airline dataset:
+
+
+
+## titles dataset:
+
+
+## books_rating dataset:
+
+
+## london dataset:
+
+
+## nov_2019 dataset:
+
+
+********** CLEANED DATASETS **********
